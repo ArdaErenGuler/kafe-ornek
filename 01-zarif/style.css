@@ -594,7 +594,9 @@ svg {
 
 /* Telefonla rezervasyon: form yerine büyük numara ve arama düğmesi */
 .rez-telefon {
-  display: inline-flex;
+  /* Kendi satırında dursun; düğmeyle yan yana sıkışmasın */
+  display: flex;
+  justify-content: center;
   align-items: center;
   gap: 0.8rem;
   margin: 2.2rem 0 1.6rem;

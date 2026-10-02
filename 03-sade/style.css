@@ -447,41 +447,37 @@ svg {
 }
 .rez-ic {
   max-width: 760px;
+  margin-inline: auto;
 }
-.form {
-  display: grid;
-  gap: 0.9rem;
-  margin-top: 2.5rem;
-}
-.form input,
-.form select {
-  width: 100%;
-  min-height: 52px;
-  padding: 0 1.1rem;
-  border: 1px solid var(--cizgi);
-  border-radius: 999px;
-  background: #fff;
-  font: inherit;
-  font-size: 0.95rem;
+/* Telefonla rezervasyon: form yerine büyük numara ve arama düğmesi */
+.rez-telefon {
+  /* Kendi satırında dursun; düğmeyle yan yana sıkışmasın */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 2.4rem 0 1.8rem;
+  font-family: var(--ince);
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  font-weight: 300;
   color: var(--metin-koyu);
+  text-decoration: none;
 }
-.form input:focus,
-.form select:focus {
-  outline: 2px solid var(--metin-koyu);
-  outline-offset: 1px;
+.rez-telefon svg {
+  width: clamp(22px, 3.5vw, 30px);
+  height: clamp(22px, 3.5vw, 30px);
+  fill: none;
+  stroke: var(--metin);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
-.form .hap {
-  justify-self: center;
-  min-width: 240px;
-  margin-top: 0.6rem;
+.rez-telefon:hover {
+  color: var(--metin);
 }
-@media (min-width: 680px) {
-  .form {
-    grid-template-columns: 1fr 1fr;
-  }
-  .form .hap {
-    grid-column: span 2;
-  }
+.rez-saat {
+  margin-top: 1.4rem;
+  font-size: 0.9rem;
 }
 
 /* ---------- Alt ---------- */
