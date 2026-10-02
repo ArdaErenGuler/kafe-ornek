@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kafe Adı — Restoran</title>
+    <meta name="description" content="Örnek restoran web sitesi tasarımı: menü, galeri, rezervasyon." />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Üst şerit: sosyal, duyuru, sepet -->
+    <div class="serit">
+      <div class="kap serit-ic">
+        <nav class="serit-sosyal" aria-label="Sosyal medya">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24"><path d="M3 3h5l5 7 5-7h3l-7 9 7 9h-5l-5-7-5 7H3l7-9z"/></svg></a>
+        </nav>
+        <p class="serit-orta">Her gün 09.00 – 23.00 · Rezervasyon için arayın</p>
+        <a href="#rezervasyon" class="serit-sag">
+          Masa ayırt
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Başlık -->
+    <header class="ust" id="ust">
+      <div class="kap ust-ic">
+        <a href="#ust" class="marka" aria-label="Ana sayfa">
+          <span class="marka-ad"><b>KAFE</b>ADI</span>
+          <span class="marka-alt">RESTORAN</span>
+        </a>
+
+        <nav class="menu" aria-label="Ana menü">
+          <a href="#ust" class="etkin">ANASAYFA</a>
+          <a href="#hakkinda">HAKKIMIZDA</a>
+          <a href="#menu">MENÜ</a>
+          <a href="#galeri">GALERİ</a>
+          <a href="#rezervasyon">REZERVASYON</a>
+          <a href="#iletisim">İLETİŞİM</a>
+        </nav>
+
+        <button class="menu-ac" type="button" aria-label="Menüyü aç" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- Kahraman -->
+      <section class="kahraman">
+        <div class="kahraman-ic">
+          <p class="elyazisi hos">Hoş geldiniz</p>
+          <p class="kahraman-marka"><b>KAFE</b>ADI</p>
+          <p class="kahraman-alt">RESTORAN</p>
+          <p class="elyazisi slogan">Lezzet ve misafirperverlik<br />bir arada</p>
+        </div>
+
+        <button class="ok ok-sol" type="button" aria-label="Önceki">
+          <svg viewBox="0 0 24 24"><path d="M15 18 9 12l6-6"/></svg>
+        </button>
+        <button class="ok ok-sag" type="button" aria-label="Sonraki">
+          <svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>
+        </button>
+
+        <!-- Hero'nun altına oturan üç kutu -->
+        <div class="kap kutular">
+          <a class="kutu" href="#menu">
+            <strong>GÜNÜN MENÜSÜ</strong>
+            <span>Şefin bugün için seçtikleri</span>
+          </a>
+          <a class="kutu" href="#galeri">
+            <strong>MEKÂNIMIZ</strong>
+            <span>Salonu ve bahçeyi gezin</span>
+          </a>
+          <a class="kutu" href="#iletisim">
+            <strong>BİZE ULAŞIN</strong>
+            <span>Adres, telefon ve saatler</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Keşfet -->
+      <section class="bolum orta" id="hakkinda">
+        <div class="kap dar">
+          <p class="elyazisi bolum-elyazisi">Keşfedin</p>
+          <h2>Mutfağımız, günlük ve mevsiminde</h2>
+          <p class="giris">
+            Bu alanda mekânın hikâyesi anlatılır: ne zaman açıldığı, mutfağın yaklaşımı ve
+            misafirlerine ne vaat ettiği. Metin örnektir, işletmenin kendi anlatımıyla değiştirilir.
+          </p>
+          <div class="ayrac" aria-hidden="true"><span></span><i></i><span></span></div>
+        </div>
+      </section>
+
+      <!-- Menü -->
+      <section class="bolum koyu" id="menu">
+        <div class="kap">
+          <div class="bolum-ust">
+            <p class="elyazisi bolum-elyazisi altin">Menü</p>
+            <h2>Öne çıkanlar</h2>
+          </div>
+
+          <div class="menu-izgara">
+            <article class="yemek">
+              <div class="yemek-gorsel y1" aria-hidden="true"></div>
+              <div class="yemek-ic">
+                <div class="yemek-satir">
+                  <h3>Günün çorbası</h3>
+                  <span class="nokta" aria-hidden="true"></span>
+                  <span class="fiyat">—</span>
+                </div>
+                <p>Mevsim sebzeleriyle, günlük hazırlanır.</p>
+              </div>
+            </article>
+            <article class="yemek">
+              <div class="yemek-gorsel y2" aria-hidden="true"></div>
+              <div class="yemek-ic">
+                <div class="yemek-satir">
+                  <h3>Fırında somon</h3>
+                  <span class="nokta" aria-hidden="true"></span>
+                  <span class="fiyat">—</span>
+                </div>
+                <p>Taze otlar ve limonlu zeytinyağı sosuyla.</p>
+              </div>
+            </article>
+            <article class="yemek">
+              <div class="yemek-gorsel y3" aria-hidden="true"></div>
+              <div class="yemek-ic">
+                <div class="yemek-satir">
+                  <h3>Şefin tabağı</h3>
+                  <span class="nokta" aria-hidden="true"></span>
+                  <span class="fiyat">—</span>
+                </div>
+                <p>Her gün değişen, mevsime göre hazırlanan tabak.</p>
+              </div>
+            </article>
+          </div>
+
+          <p class="menu-not">Fiyatlar işletme tarafından doldurulur.</p>
+        </div>
+      </section>
+
+      <!-- Galeri -->
+      <section class="bolum" id="galeri">
+        <div class="kap">
+          <div class="bolum-ust orta">
+            <p class="elyazisi bolum-elyazisi">Galeri</p>
+            <h2>Mekândan kareler</h2>
+          </div>
+          <div class="galeri">
+            <div class="kare g1"></div>
+            <div class="kare g2"></div>
+            <div class="kare g3"></div>
+            <div class="kare g4"></div>
+            <div class="kare g5"></div>
+            <div class="kare g6"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Rezervasyon -->
+      <section class="rezervasyon" id="rezervasyon">
+        <div class="kap rez-ic orta">
+          <p class="elyazisi bolum-elyazisi altin">Rezervasyon</p>
+          <h2>Masanızı telefonla ayıralım</h2>
+          <p class="rez-metin">
+            Rezervasyon için bizi arayın; uygun saati birlikte belirleyelim. Kalabalık gruplar
+            için birkaç gün önceden haber vermeniz yeterli.
+          </p>
+
+          <a class="rez-telefon" href="tel:+900000000000">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+            0000 000 00 00
+          </a>
+
+          <a href="tel:+900000000000" class="dugme dugme-altin">HEMEN ARAYIN</a>
+
+          <p class="rez-saat">Her gün 09.00 – 23.00 arası ulaşabilirsiniz.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="alt" id="iletisim">
+      <div class="kap alt-ic">
+        <div>
+          <p class="marka-ad alt-marka"><b>KAFE</b>ADI</p>
+          <p class="alt-metin">Örnek adres satırı, Mahalle / İlçe</p>
+        </div>
+        <div>
+          <h3>İletişim</h3>
+          <p><a href="tel:+900000000000">0000 000 00 00</a></p>
+          <p><a href="mailto:ornek@ornek.com">ornek@ornek.com</a></p>
+        </div>
+        <div>
+          <h3>Saatler</h3>
+          <p>Pazartesi – Pazar</p>
+          <p>09.00 – 23.00</p>
+        </div>
+      </div>
+      <div class="kap telif">© <span id="yil">2026</span> Kafe Adı · Örnek tasarım</div>
+    </footer>
+
+    <script>
+      document.getElementById('yil').textContent = new Date().getFullYear();
+
+      const ac = document.querySelector('.menu-ac');
+      const menu = document.querySelector('.menu');
+      ac.addEventListener('click', () => {
+        const acik = menu.classList.toggle('acik');
+        ac.setAttribute('aria-expanded', String(acik));
+      });
+      menu.addEventListener('click', (e) => e.target.tagName === 'A' && menu.classList.remove('acik'));
+
+      const gozlemci = new IntersectionObserver(
+        (g) => g.forEach((x) => x.isIntersecting && x.target.classList.add('gorundu')),
+        { rootMargin: '0px 0px -10% 0px' },
+      );
+      document.querySelectorAll('.bolum, .rezervasyon').forEach((el) => gozlemci.observe(el));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,541 @@
+/* ============================================================
+   "Sade" örnek tasarım — restoran & kafe
+   Tam ekran koyu fotoğraf, ince ve geniş aralıklı başlık, beyaz hap düğme,
+   az renk. Deneme tasarımıdır; marka içermez. Dışarıdan dosya çekilmez.
+   ============================================================ */
+
+:root {
+  --siyah: #141416;
+  --siyah-2: #1c1d20;
+  --metin: #6b7077;
+  --metin-koyu: #23262a;
+  --cizgi: #e6e8ea;
+  --kagit: #ffffff;
+  --kagit-2: #f7f8f9;
+
+  --kenar: clamp(1.25rem, 5vw, 3.5rem);
+  --govde: 1180px;
+  --ince: "Segoe UI Light", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+body {
+  margin: 0;
+  background: var(--kagit);
+  color: var(--metin);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3 {
+  margin: 0;
+  color: var(--metin-koyu);
+  font-family: var(--ince);
+  font-weight: 300;
+  line-height: 1.25;
+}
+p {
+  margin: 0;
+}
+a {
+  color: inherit;
+}
+svg {
+  display: block;
+}
+
+.kap {
+  width: 100%;
+  max-width: var(--govde);
+  margin-inline: auto;
+  padding-inline: var(--kenar);
+}
+.orta {
+  text-align: center;
+}
+
+/* ---------- Hap düğme ---------- */
+
+.hap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 2.4rem;
+  border: 1px solid #fff;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--metin-koyu);
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.25s, color 0.25s;
+}
+.hap:hover {
+  background: transparent;
+  color: #fff;
+}
+.hap-dolu {
+  border-color: var(--metin-koyu);
+  background: var(--metin-koyu);
+  color: #fff;
+}
+.hap-dolu:hover {
+  background: transparent;
+  color: var(--metin-koyu);
+}
+
+/* ---------- Üst ---------- */
+
+.ust {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 60;
+  transition: background-color 0.3s, border-color 0.3s;
+  border-bottom: 1px solid transparent;
+}
+.ust.kaydirildi {
+  background: rgb(20 20 22 / 0.95);
+  border-bottom-color: rgb(255 255 255 / 0.1);
+  backdrop-filter: blur(8px);
+}
+.ust-ic {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  min-height: 80px;
+}
+
+.logo {
+  display: grid;
+  place-items: center;
+  min-width: 46px;
+  height: 46px;
+  padding: 0 0.5rem;
+  font-family: var(--ince);
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu {
+  display: none;
+  margin-left: auto;
+  gap: 1.8rem;
+}
+.menu a {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: rgb(255 255 255 / 0.72);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.menu a:hover,
+.menu a.etkin {
+  color: #fff;
+}
+
+.menu-ac {
+  margin-left: auto;
+  display: grid;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  place-content: center;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.menu-ac span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: #fff;
+}
+
+@media (min-width: 1000px) {
+  .menu {
+    display: flex;
+  }
+  .menu-ac {
+    display: none;
+  }
+}
+@media (max-width: 999px) {
+  .menu.acik {
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.4rem var(--kenar) 1.2rem;
+    background: rgb(20 20 22 / 0.97);
+  }
+  .menu.acik a {
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgb(255 255 255 / 0.1);
+  }
+}
+
+/* ---------- Kahraman ---------- */
+
+.kahraman {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100svh;
+  padding: 7rem var(--kenar) 5rem;
+  background-image: linear-gradient(rgb(12 13 15 / 0.62), rgb(12 13 15 / 0.68)),
+    url("../gorseller/hero-masa.jpg");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: #fff;
+}
+.kahraman-ic {
+  max-width: 900px;
+}
+.kahraman h1 {
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: 0.01em;
+}
+
+.bilgi {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem 2.2rem;
+  margin: 2.2rem 0 2.6rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+  color: rgb(255 255 255 / 0.88);
+}
+.bilgi li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.bilgi svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.85;
+}
+
+.asagi {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  translate: -50% 0;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  color: rgb(255 255 255 / 0.8);
+  animation: zipla 2.4s ease-in-out infinite;
+}
+.asagi svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@keyframes zipla {
+  0%, 100% { translate: -50% 0; }
+  50% { translate: -50% 8px; }
+}
+
+/* ---------- Bölümler ---------- */
+
+.bolum {
+  padding: clamp(4rem, 9vw, 7rem) 0;
+  opacity: 0;
+  translate: 0 18px;
+  transition: opacity 0.75s, translate 0.75s;
+}
+.bolum.gorundu {
+  opacity: 1;
+  translate: 0;
+}
+.bolum.koyu {
+  background: var(--siyah);
+  color: #9aa0a7;
+}
+.bolum.koyu h2,
+.bolum.koyu h3 {
+  color: #fff;
+}
+
+.etiket {
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  color: var(--metin);
+}
+.etiket.acik {
+  color: rgb(255 255 255 / 0.55);
+}
+.bolum h2,
+.rez h2 {
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+}
+.bolum-ust {
+  margin-bottom: 3rem;
+}
+.metin {
+  margin-top: 1.2rem;
+  max-width: 52ch;
+}
+.orta-metin {
+  margin-inline: auto;
+}
+
+/* ---------- Hakkımızda ---------- */
+
+.ikili {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+.ikili-gorsel {
+  aspect-ratio: 4 / 5;
+  background-image: url("../gorseller/yemek-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.sayilar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid var(--cizgi);
+}
+.sayilar div {
+  display: grid;
+}
+.sayilar strong {
+  font-family: var(--ince);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--metin-koyu);
+  line-height: 1.1;
+}
+.sayilar span {
+  font-size: 0.82rem;
+}
+@media (min-width: 900px) {
+  .ikili {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+  }
+}
+
+/* ---------- Menü ---------- */
+
+.menu-ikili {
+  display: grid;
+  gap: 3rem;
+}
+.menu-sutun h3 {
+  margin-bottom: 1.6rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgb(255 255 255 / 0.14);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  font-family: inherit;
+}
+.menu-liste {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1.1rem;
+}
+.menu-liste li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+}
+.menu-liste .ad {
+  color: #e2e5e8;
+}
+.menu-liste .cizgi {
+  flex: 1;
+  border-bottom: 1px dotted rgb(255 255 255 / 0.25);
+  translate: 0 -4px;
+}
+.menu-liste .fiyat {
+  color: rgb(255 255 255 / 0.6);
+}
+@media (min-width: 820px) {
+  .menu-ikili {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+/* ---------- Galeri ---------- */
+
+.galeri {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.kare {
+  aspect-ratio: 1;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 0.3s;
+}
+.kare:hover {
+  opacity: 0.86;
+}
+.k1 { background-image: url("../gorseller/mekan-1.jpg"); }
+.k2 { background-image: url("../gorseller/yemek-1.jpg"); }
+.k3 { background-image: url("../gorseller/mekan-3.jpg"); }
+.k4 { background-image: url("../gorseller/yemek-3.jpg"); }
+@media (min-width: 760px) {
+  .galeri {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ---------- Rezervasyon ---------- */
+
+.rez {
+  padding: clamp(4rem, 9vw, 7rem) 0;
+  background: var(--kagit-2);
+  opacity: 0;
+  translate: 0 18px;
+  transition: opacity 0.75s, translate 0.75s;
+}
+.rez.gorundu {
+  opacity: 1;
+  translate: 0;
+}
+.rez .etiket.acik {
+  color: var(--metin);
+}
+.rez-ic {
+  max-width: 760px;
+}
+.form {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 2.5rem;
+}
+.form input,
+.form select {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 1.1rem;
+  border: 1px solid var(--cizgi);
+  border-radius: 999px;
+  background: #fff;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--metin-koyu);
+}
+.form input:focus,
+.form select:focus {
+  outline: 2px solid var(--metin-koyu);
+  outline-offset: 1px;
+}
+.form .hap {
+  justify-self: center;
+  min-width: 240px;
+  margin-top: 0.6rem;
+}
+@media (min-width: 680px) {
+  .form {
+    grid-template-columns: 1fr 1fr;
+  }
+  .form .hap {
+    grid-column: span 2;
+  }
+}
+
+/* ---------- Alt ---------- */
+
+.alt {
+  padding: 3.5rem 0;
+  background: var(--siyah);
+  color: #868c93;
+  text-align: center;
+  font-size: 0.9rem;
+}
+.alt-ic {
+  display: grid;
+  gap: 1.4rem;
+  justify-items: center;
+}
+.logo-alt {
+  color: #fff;
+}
+.alt-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.6rem;
+}
+.alt-menu a {
+  text-decoration: none;
+  color: #c3c8cd;
+}
+.alt-menu a:hover {
+  color: #fff;
+}
+.alt-bilgi a {
+  color: #fff;
+  text-decoration: none;
+}
+.telif {
+  font-size: 0.8rem;
+  color: #5e656c;
+}
+
+/* ---------- Hareket azaltma ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .bolum,
+  .rez {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+  .asagi {
+    animation: none;
+  }
+}

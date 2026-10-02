@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kahve Dükkânı — Örnek Tasarım</title>
+    <meta name="description" content="Örnek kahve dükkânı web sitesi tasarımı: menü, blog, abonelik." />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Üst menü: iki satırlı başlıklar, ortada yuvarlak rozet -->
+    <header class="ust" id="ust">
+      <div class="ust-ic">
+        <nav class="menu menu-sol" aria-label="Sol menü">
+          <a href="#ust"><b>ANASAYFA</b><span>Buradan başlayın</span></a>
+          <a href="#menu"><b>MENÜ</b><span>Kahve ve tatlı</span></a>
+          <a href="#hakkinda"><b>HAKKIMIZDA</b><span>Biz kimiz</span></a>
+        </nav>
+
+        <a href="#ust" class="rozet" aria-label="Ana sayfa">
+          <span class="rozet-ic">
+            <i class="rozet-ust">KAHVE</i>
+            <i class="rozet-ad">Dükkânı</i>
+            <i class="rozet-alt">ROASTERS &amp; CAFE</i>
+          </span>
+        </a>
+
+        <nav class="menu menu-sag" aria-label="Sağ menü">
+          <a href="#blog"><b>BLOG</b><span>Yazılarımız</span></a>
+          <a href="#ozel"><b>ÖZEL SEÇKİ</b><span>Haftanın çekirdeği</span></a>
+          <a href="#iletisim"><b>İLETİŞİM</b><span>Bize yazın</span></a>
+        </nav>
+
+        <button class="menu-ac" type="button" aria-label="Menüyü aç" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <nav class="mobil-menu" aria-label="Mobil menü">
+        <a href="#menu">MENÜ</a>
+        <a href="#hakkinda">HAKKIMIZDA</a>
+        <a href="#blog">BLOG</a>
+        <a href="#ozel">ÖZEL SEÇKİ</a>
+        <a href="#iletisim">İLETİŞİM</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Kahraman -->
+      <section class="kahraman">
+        <div class="kahraman-ic">
+          <h1><span>SÜTÜ KÖPÜRTMENİN</span><br /><span>EN İYİ YOLU</span></h1>
+          <p class="kahraman-alt"><span>YOĞUN VE İPEK GİBİ KÖPÜK</span></p>
+        </div>
+
+        <!-- Alt şerit: bülten -->
+        <div class="bulten">
+          <div class="kap bulten-ic">
+            <div class="bulten-yazi">
+              <strong>BÜLTENİMİZE KATILIN</strong>
+              <span>yeni demlemelerden ilk siz haberdar olun</span>
+            </div>
+            <form class="bulten-form" onsubmit="event.preventDefault(); this.reset(); alert('Örnek tasarım: form gönderimi bağlı değil.');">
+              <input type="email" required placeholder="e-posta adresiniz" aria-label="E-posta adresiniz" />
+              <button type="submit" class="dugme">ABONE OL</button>
+            </form>
+            <a href="#iletisim" class="dugme dugme-ok">› SOSYAL</a>
+            <a href="#menu" class="dugme dugme-ok">› MENÜ</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Menü -->
+      <section class="bolum" id="menu">
+        <div class="kap">
+          <header class="bolum-ust">
+            <p class="etiket">MENÜ</p>
+            <h2>Fincanda ne var?</h2>
+            <p class="bolum-metin">
+              Çekirdekleri küçük partiler hâlinde kendimiz kavuruyoruz. Menü örnektir, işletmenin
+              kendi ürünleriyle değiştirilir.
+            </p>
+          </header>
+
+          <div class="urun-izgara">
+            <article class="urun">
+              <div class="urun-gorsel u1" aria-hidden="true"></div>
+              <div class="urun-ic">
+                <h3>Espresso</h3>
+                <p>Çikolatamsı, dolgun gövdeli ev harmanı.</p>
+                <span class="urun-fiyat">—</span>
+              </div>
+            </article>
+            <article class="urun">
+              <div class="urun-gorsel u2" aria-hidden="true"></div>
+              <div class="urun-ic">
+                <h3>Flat White</h3>
+                <p>İnce dokulu süt köpüğü, çift shot espresso.</p>
+                <span class="urun-fiyat">—</span>
+              </div>
+            </article>
+            <article class="urun">
+              <div class="urun-gorsel u3" aria-hidden="true"></div>
+              <div class="urun-ic">
+                <h3>Filtre Kahve</h3>
+                <p>Günün çekirdeği, V60 ya da chemex ile.</p>
+                <span class="urun-fiyat">—</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hakkımızda -->
+      <section class="bolum krem" id="hakkinda">
+        <div class="kap ikili">
+          <div class="ikili-gorsel" aria-hidden="true"></div>
+          <div>
+            <p class="etiket">HAKKIMIZDA</p>
+            <h2>Küçük bir dükkân,<br />uzun bir demleme</h2>
+            <p class="bolum-metin">
+              Bu alanda dükkânın hikâyesi yer alır: ne zaman açıldığı, çekirdeğin nereden geldiği,
+              kavurma yaklaşımı. Metin örnektir, işletmenin kendi anlatımıyla değiştirilir.
+            </p>
+            <ul class="liste">
+              <li>Haftalık taze kavurma</li>
+              <li>Tek çiftlik ve harman seçenekleri</li>
+              <li>Evde demleme için çekirdek satışı</li>
+            </ul>
+            <a href="#iletisim" class="dugme">BİZE UĞRAYIN</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Özel seçki -->
+      <section class="bolum" id="ozel">
+        <div class="kap">
+          <header class="bolum-ust orta">
+            <p class="etiket">ÖZEL SEÇKİ</p>
+            <h2>Haftanın çekirdeği</h2>
+          </header>
+
+          <div class="secki">
+            <div class="secki-gorsel" aria-hidden="true"></div>
+            <div class="secki-ic">
+              <h3>Yüksek rakım, kısa kavurma</h3>
+              <p>
+                Haftanın çekirdeği her pazartesi değişir. Tadım notları ve demleme önerisi burada
+                yazar; metin örnektir.
+              </p>
+              <dl class="notlar">
+                <div><dt>Tat</dt><dd>Kakao · fındık</dd></div>
+                <div><dt>Kavurma</dt><dd>Orta</dd></div>
+                <div><dt>Öneri</dt><dd>Filtre</dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog -->
+      <section class="bolum krem" id="blog">
+        <div class="kap">
+          <header class="bolum-ust orta">
+            <p class="etiket">BLOG</p>
+            <h2>Demleme üzerine</h2>
+          </header>
+
+          <div class="yazi-izgara">
+            <article class="yazi">
+              <div class="yazi-gorsel b1" aria-hidden="true"></div>
+              <div class="yazi-ic">
+                <span class="yazi-tarih">Yazı başlığı</span>
+                <h3>Evde iyi espresso için üç ayar</h3>
+                <p>Örnek blog özeti. İşletmenin kendi yazılarıyla değiştirilir.</p>
+                <a href="#" class="bag">DEVAMINI OKU ›</a>
+              </div>
+            </article>
+            <article class="yazi">
+              <div class="yazi-gorsel b2" aria-hidden="true"></div>
+              <div class="yazi-ic">
+                <span class="yazi-tarih">Yazı başlığı</span>
+                <h3>Süt köpürtmenin püf noktaları</h3>
+                <p>Örnek blog özeti. İşletmenin kendi yazılarıyla değiştirilir.</p>
+                <a href="#" class="bag">DEVAMINI OKU ›</a>
+              </div>
+            </article>
+            <article class="yazi">
+              <div class="yazi-gorsel b3" aria-hidden="true"></div>
+              <div class="yazi-ic">
+                <span class="yazi-tarih">Yazı başlığı</span>
+                <h3>Çekirdek nasıl saklanır?</h3>
+                <p>Örnek blog özeti. İşletmenin kendi yazılarıyla değiştirilir.</p>
+                <a href="#" class="bag">DEVAMINI OKU ›</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="alt" id="iletisim">
+      <div class="kap alt-ic">
+        <div>
+          <p class="alt-marka">KAHVE DÜKKÂNI</p>
+          <p>Örnek adres satırı, Mahalle / İlçe</p>
+        </div>
+        <div>
+          <h3>SAATLER</h3>
+          <p>Hafta içi 08.00 – 20.00</p>
+          <p>Hafta sonu 09.00 – 21.00</p>
+        </div>
+        <div>
+          <h3>İLETİŞİM</h3>
+          <p><a href="tel:+900000000000">0000 000 00 00</a></p>
+          <p><a href="mailto:ornek@ornek.com">ornek@ornek.com</a></p>
+        </div>
+      </div>
+      <div class="kap telif">© <span id="yil">2026</span> Kahve Dükkânı · Örnek tasarım</div>
+    </footer>
+
+    <script>
+      document.getElementById('yil').textContent = new Date().getFullYear();
+
+      const ac = document.querySelector('.menu-ac');
+      const mobil = document.querySelector('.mobil-menu');
+      ac.addEventListener('click', () => {
+        const acik = mobil.classList.toggle('acik');
+        ac.setAttribute('aria-expanded', String(acik));
+      });
+      mobil.addEventListener('click', (e) => e.target.tagName === 'A' && mobil.classList.remove('acik'));
+
+      const gozlemci = new IntersectionObserver(
+        (g) => g.forEach((x) => x.isIntersecting && x.target.classList.add('gorundu')),
+        { rootMargin: '0px 0px -10% 0px' },
+      );
+      document.querySelectorAll('.bolum').forEach((el) => gozlemci.observe(el));
+    </script>
+  </body>
+</html>

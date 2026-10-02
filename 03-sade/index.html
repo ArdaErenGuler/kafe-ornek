@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Restoran &amp; Kafe — Örnek Tasarım</title>
+    <meta name="description" content="Örnek restoran ve kafe web sitesi tasarımı: menü, galeri, rezervasyon." />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="ust" id="ust">
+      <div class="kap ust-ic">
+        <a href="#ust" class="logo" aria-label="Ana sayfa">KA</a>
+
+        <nav class="menu" aria-label="Ana menü">
+          <a href="#ust" class="etkin">ANASAYFA</a>
+          <a href="#hakkinda">HAKKIMIZDA</a>
+          <a href="#menu">MENÜ</a>
+          <a href="#galeri">GALERİ</a>
+          <a href="#rezervasyon">REZERVASYON</a>
+          <a href="#iletisim">İLETİŞİM</a>
+        </nav>
+
+        <button class="menu-ac" type="button" aria-label="Menüyü aç" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- Kahraman -->
+      <section class="kahraman">
+        <div class="kahraman-ic">
+          <h1>Restoran &amp; Kafe<br />Örnek Tasarım</h1>
+
+          <ul class="bilgi">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Örnek Mahalle, No: 00
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+              0000 000 00 00
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              Her gün 10.00 – 23.00
+            </li>
+          </ul>
+
+          <a href="#rezervasyon" class="hap">REZERVASYON</a>
+        </div>
+
+        <a href="#hakkinda" class="asagi" aria-label="Aşağı kaydır">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </a>
+      </section>
+
+      <!-- Hakkımızda -->
+      <section class="bolum" id="hakkinda">
+        <div class="kap ikili">
+          <div>
+            <p class="etiket">HAKKIMIZDA</p>
+            <h2>Sade bir mutfak,<br />özenli bir servis</h2>
+            <p class="metin">
+              Bu alanda mekânın hikâyesi anlatılır: mutfağın yaklaşımı, kullanılan ürünler ve
+              misafire verilen söz. Metin örnektir, işletmenin kendi anlatımıyla değiştirilir.
+            </p>
+            <p class="metin">
+              İkinci paragraf için yer. Kısa tutulması, sayfanın ferah durması açısından iyi olur.
+            </p>
+            <div class="sayilar">
+              <div><strong>12</strong><span>yıllık mutfak</span></div>
+              <div><strong>40</strong><span>kişilik salon</span></div>
+              <div><strong>7/24</strong><span>online rezervasyon</span></div>
+            </div>
+          </div>
+          <div class="ikili-gorsel" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- Menü -->
+      <section class="bolum koyu" id="menu">
+        <div class="kap">
+          <header class="bolum-ust orta">
+            <p class="etiket acik">MENÜ</p>
+            <h2>Mutfaktan seçmeler</h2>
+            <p class="metin orta-metin">
+              Menü örnektir; işletmenin kendi yemekleri ve fiyatlarıyla değiştirilir.
+            </p>
+          </header>
+
+          <div class="menu-ikili">
+            <div class="menu-sutun">
+              <h3>BAŞLANGIÇLAR</h3>
+              <ul class="menu-liste">
+                <li><span class="ad">Mevsim salatası</span><span class="cizgi"></span><span class="fiyat">—</span></li>
+                <li><span class="ad">Günün çorbası</span><span class="cizgi"></span><span class="fiyat">—</span></li>
+                <li><span class="ad">Fırın mezeler</span><span class="cizgi"></span><span class="fiyat">—</span></li>
+                <li><span class="ad">Ev yapımı ekmek</span><span class="cizgi"></span><span class="fiyat">—</span></li>
+              </ul>
+            </div>
+            <div class="menu-sutun">
+              <h3>ANA YEMEKLER</h3>
+              <ul class="menu-liste">
+                <li><span class="ad">Fırında somon</span><span class="cizgi"></span><span class="fiyat">—</span></li>
+                <li><span class="ad">Izgara et tabağı</span><span class="cizgi"></span><span class="fiyat">—</span></li>
+                <li><span class="ad">Günün makarnası</span><span class="cizgi"></span><span class="fiyat">—</span></li>
+                <li><span class="ad">Sebzeli risotto</span><span class="cizgi"></span><span class="fiyat">—</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Galeri -->
+      <section class="bolum" id="galeri">
+        <div class="kap">
+          <header class="bolum-ust orta">
+            <p class="etiket">GALERİ</p>
+            <h2>Mekândan</h2>
+          </header>
+        </div>
+        <div class="galeri">
+          <div class="kare k1"></div>
+          <div class="kare k2"></div>
+          <div class="kare k3"></div>
+          <div class="kare k4"></div>
+        </div>
+      </section>
+
+      <!-- Rezervasyon -->
+      <section class="rez" id="rezervasyon">
+        <div class="kap rez-ic">
+          <header class="orta">
+            <p class="etiket acik">REZERVASYON</p>
+            <h2>Masanızı ayıralım</h2>
+            <p class="metin orta-metin">
+              Formu doldurun, en kısa sürede dönüş yapalım. Kalabalık gruplar için telefonla
+              aramanız daha hızlı olur.
+            </p>
+          </header>
+
+          <form class="form" onsubmit="event.preventDefault(); this.reset(); alert('Örnek tasarım: form gönderimi bağlı değil.');">
+            <input type="text" required placeholder="Ad Soyad" aria-label="Ad Soyad" />
+            <input type="tel" required placeholder="Telefon" aria-label="Telefon" />
+            <input type="date" required aria-label="Tarih" />
+            <select aria-label="Kişi sayısı">
+              <option>2 kişi</option>
+              <option>4 kişi</option>
+              <option>6 kişi</option>
+              <option>6+ kişi</option>
+            </select>
+            <button type="submit" class="hap hap-dolu">GÖNDER</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="alt" id="iletisim">
+      <div class="kap alt-ic">
+        <span class="logo logo-alt">KA</span>
+        <nav class="alt-menu" aria-label="Alt menü">
+          <a href="#hakkinda">Hakkımızda</a>
+          <a href="#menu">Menü</a>
+          <a href="#galeri">Galeri</a>
+          <a href="#rezervasyon">Rezervasyon</a>
+        </nav>
+        <p class="alt-bilgi">
+          Örnek Mahalle, No: 00 · <a href="tel:+900000000000">0000 000 00 00</a>
+        </p>
+        <p class="telif">© <span id="yil">2026</span> Örnek tasarım</p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('yil').textContent = new Date().getFullYear();
+
+      const ac = document.querySelector('.menu-ac');
+      const menu = document.querySelector('.menu');
+      ac.addEventListener('click', () => {
+        const acik = menu.classList.toggle('acik');
+        ac.setAttribute('aria-expanded', String(acik));
+      });
+      menu.addEventListener('click', (e) => e.target.tagName === 'A' && menu.classList.remove('acik'));
+
+      const ust = document.querySelector('.ust');
+      const kontrol = () => ust.classList.toggle('kaydirildi', scrollY > 40);
+      kontrol();
+      addEventListener('scroll', kontrol, { passive: true });
+
+      const gozlemci = new IntersectionObserver(
+        (g) => g.forEach((x) => x.isIntersecting && x.target.classList.add('gorundu')),
+        { rootMargin: '0px 0px -10% 0px' },
+      );
+      document.querySelectorAll('.bolum, .rez').forEach((el) => gozlemci.observe(el));
+    </script>
+  </body>
+</html>

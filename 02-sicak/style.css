@@ -1,0 +1,605 @@
+/* ============================================================
+   "Sıcak" örnek tasarım — kahve dükkânı
+   Koyu kahve üst menü (iki satırlı başlıklar + ortada yuvarlak rozet),
+   tam ekran fotoğraf, krem vurgu kutuları, turuncu düğmeler.
+   Deneme tasarımıdır; marka içermez. Dışarıdan dosya çekilmez.
+   ============================================================ */
+
+:root {
+  --turuncu: #e8792b;
+  --turuncu-koyu: #c9641d;
+  --kahve: #342a24;
+  --kahve-acik: #4a3c33;
+  --krem: #f7f0e3;
+  --krem-2: #fbf7ef;
+  --metin: #5f564f;
+  --metin-koyu: #2b231e;
+  --cizgi: #e6ded0;
+
+  --kenar: clamp(1.25rem, 4vw, 3rem);
+  --govde: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--metin);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3 {
+  margin: 0;
+  color: var(--metin-koyu);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+}
+p {
+  margin: 0;
+}
+a {
+  color: inherit;
+}
+svg {
+  display: block;
+}
+
+.kap {
+  width: 100%;
+  max-width: var(--govde);
+  margin-inline: auto;
+  padding-inline: var(--kenar);
+}
+.orta {
+  text-align: center;
+}
+
+/* ---------- Düğme ---------- */
+
+.dugme {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 1.5rem;
+  background: var(--turuncu);
+  border: 0;
+  color: #fff;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.dugme:hover {
+  background: var(--turuncu-koyu);
+}
+.dugme-ok {
+  background: var(--kahve-acik);
+}
+.dugme-ok:hover {
+  background: var(--kahve);
+}
+
+/* ---------- Üst menü ---------- */
+
+.ust {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: var(--kahve);
+}
+.ust-ic {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: var(--govde);
+  margin-inline: auto;
+  padding: 0.9rem var(--kenar);
+  min-height: 74px;
+}
+
+.menu {
+  display: none;
+  gap: 2.2rem;
+  padding-top: 0.2rem;
+}
+.menu-sol {
+  justify-content: flex-start;
+}
+.menu-sag {
+  justify-content: flex-end;
+}
+.menu a {
+  display: grid;
+  gap: 0.1rem;
+  text-decoration: none;
+  text-align: center;
+}
+.menu b {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--turuncu);
+  transition: color 0.2s;
+}
+.menu span {
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  color: #b3a79c;
+}
+.menu a:hover b {
+  color: #fff;
+}
+
+/* Ortadaki yuvarlak rozet */
+.rozet {
+  position: absolute;
+  left: 50%;
+  top: 0.5rem;
+  translate: -50% 0;
+  display: none;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  background: var(--krem);
+  border: 3px solid var(--kahve-acik);
+  box-shadow: 0 0 0 4px var(--kahve);
+  text-decoration: none;
+  place-items: center;
+}
+.rozet-ic {
+  display: grid;
+  justify-items: center;
+  gap: 0.1rem;
+  line-height: 1;
+  text-align: center;
+}
+.rozet i {
+  font-style: normal;
+}
+.rozet-ust {
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  color: var(--metin);
+}
+.rozet-ad {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  color: var(--metin-koyu);
+}
+.rozet-alt {
+  font-size: 0.45rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--turuncu);
+}
+
+.menu-ac {
+  display: grid;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  place-content: center;
+  background: none;
+  border: 1px solid rgb(255 255 255 / 0.2);
+  cursor: pointer;
+}
+.menu-ac span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #fff;
+}
+
+.mobil-menu {
+  display: none;
+  flex-direction: column;
+  padding: 0 var(--kenar) 1rem;
+  background: var(--kahve);
+}
+.mobil-menu.acik {
+  display: flex;
+}
+.mobil-menu a {
+  padding: 0.85rem 0;
+  border-top: 1px solid rgb(255 255 255 / 0.1);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--turuncu);
+  text-decoration: none;
+}
+
+@media (min-width: 1060px) {
+  .menu,
+  .rozet {
+    display: flex;
+  }
+  .rozet {
+    display: grid;
+  }
+  .menu-ac {
+    display: none;
+  }
+  .ust-ic {
+    min-height: 92px;
+  }
+}
+
+/* ---------- Kahraman ---------- */
+
+.kahraman {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: min(88vh, 760px);
+  padding: 5rem var(--kenar) 9rem;
+  background-image: linear-gradient(rgb(40 30 22 / 0.35), rgb(40 30 22 / 0.45)),
+    url("../gorseller/kahve-1.jpg");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+.kahraman h1 {
+  font-size: clamp(1.7rem, 5.2vw, 3.3rem);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+}
+.kahraman h1 span {
+  background: var(--krem);
+  box-shadow: 0.5rem 0 0 var(--krem), -0.5rem 0 0 var(--krem);
+  color: var(--metin-koyu);
+}
+.kahraman-alt {
+  margin-top: 1.2rem;
+  font-size: clamp(0.9rem, 2.2vw, 1.3rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.8;
+}
+.kahraman-alt span {
+  background: var(--krem);
+  box-shadow: 0.4rem 0 0 var(--krem), -0.4rem 0 0 var(--krem);
+  color: var(--metin-koyu);
+}
+
+/* Alt bülten şeridi */
+.bulten {
+  position: absolute;
+  inset: auto 0 0;
+  background: rgb(52 42 36 / 0.94);
+  padding: 0.9rem 0;
+}
+.bulten-ic {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+}
+.bulten-yazi {
+  display: grid;
+  margin-right: auto;
+  line-height: 1.35;
+}
+.bulten-yazi strong {
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+.bulten-yazi span {
+  font-size: 0.78rem;
+  color: #b3a79c;
+}
+.bulten-form {
+  display: flex;
+  gap: 0.5rem;
+}
+.bulten-form input {
+  min-width: 180px;
+  padding: 0 0.9rem;
+  height: 46px;
+  border: 1px solid rgb(255 255 255 / 0.2);
+  background: rgb(255 255 255 / 0.95);
+  font: inherit;
+  font-size: 0.88rem;
+  color: var(--metin-koyu);
+}
+.bulten-form input:focus {
+  outline: 2px solid var(--turuncu);
+  outline-offset: 1px;
+}
+
+/* ---------- Bölümler ---------- */
+
+.bolum {
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
+  opacity: 0;
+  translate: 0 18px;
+  transition: opacity 0.7s, translate 0.7s;
+}
+.bolum.gorundu {
+  opacity: 1;
+  translate: 0;
+}
+.krem {
+  background: var(--krem-2);
+}
+
+.etiket {
+  margin-bottom: 0.7rem;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: var(--turuncu);
+}
+.bolum h2 {
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+}
+.bolum-ust {
+  margin-bottom: 2.8rem;
+}
+.bolum-metin {
+  max-width: 54ch;
+  margin-top: 1rem;
+}
+.bolum-ust.orta .bolum-metin {
+  margin-inline: auto;
+}
+
+/* ---------- Ürünler ---------- */
+
+.urun-izgara {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.urun {
+  background: #fff;
+  border: 1px solid var(--cizgi);
+  transition: translate 0.25s, border-color 0.25s;
+}
+.urun:hover {
+  translate: 0 -5px;
+  border-color: var(--turuncu);
+}
+.urun-gorsel {
+  aspect-ratio: 4 / 3;
+  background-size: cover;
+  background-position: center;
+}
+.u1 { background-image: url("../gorseller/kahve-2.jpg"); }
+.u2 { background-image: url("../gorseller/kahve-3.jpg"); }
+.u3 { background-image: url("../gorseller/kahve-1.jpg"); }
+.urun-ic {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1.5rem;
+}
+.urun h3 {
+  font-size: 1.2rem;
+}
+.urun p {
+  font-size: 0.92rem;
+}
+.urun-fiyat {
+  margin-top: 0.4rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--turuncu);
+}
+
+/* ---------- İkili (hakkımızda) ---------- */
+
+.ikili {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+.ikili-gorsel {
+  aspect-ratio: 4 / 3;
+  background-image: url("../gorseller/mekan-1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.liste {
+  margin: 1.4rem 0 1.8rem;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+}
+.liste li {
+  position: relative;
+  padding-left: 1.6rem;
+}
+.liste li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--turuncu);
+}
+@media (min-width: 900px) {
+  .ikili {
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+  }
+}
+
+/* ---------- Özel seçki ---------- */
+
+.secki {
+  display: grid;
+  gap: 0;
+  background: var(--kahve);
+  color: #cdc3b9;
+}
+.secki-gorsel {
+  min-height: 260px;
+  background-image: url("../gorseller/kahve-3.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.secki-ic {
+  padding: clamp(1.8rem, 5vw, 3rem);
+}
+.secki h3 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: #fff;
+}
+.secki p {
+  margin-top: 1rem;
+  max-width: 48ch;
+}
+.notlar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 1.8rem 0 0;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgb(255 255 255 / 0.14);
+}
+.notlar div {
+  display: grid;
+}
+.notlar dt {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--turuncu);
+}
+.notlar dd {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+}
+@media (min-width: 880px) {
+  .secki {
+    grid-template-columns: 1fr 1.2fr;
+  }
+}
+
+/* ---------- Blog ---------- */
+
+.yazi-izgara {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.yazi {
+  background: #fff;
+  border: 1px solid var(--cizgi);
+}
+.yazi-gorsel {
+  aspect-ratio: 16 / 10;
+  background-size: cover;
+  background-position: center;
+}
+.b1 { background-image: url("../gorseller/kahve-2.jpg"); }
+.b2 { background-image: url("../gorseller/kahve-1.jpg"); }
+.b3 { background-image: url("../gorseller/mekan-3.jpg"); }
+.yazi-ic {
+  padding: 1.5rem;
+}
+.yazi-tarih {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--turuncu);
+}
+.yazi h3 {
+  margin: 0.5rem 0 0.6rem;
+  font-size: 1.15rem;
+}
+.yazi p {
+  font-size: 0.92rem;
+}
+.bag {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--turuncu);
+  text-decoration: none;
+}
+
+/* ---------- Alt ---------- */
+
+.alt {
+  padding: 3.5rem 0 2rem;
+  background: var(--kahve);
+  color: #b3a79c;
+  font-size: 0.92rem;
+}
+.alt-ic {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.alt h3 {
+  margin-bottom: 0.6rem;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--turuncu);
+}
+.alt a {
+  color: #fff;
+  text-decoration: none;
+}
+.alt-marka {
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+.telif {
+  margin-top: 2.5rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgb(255 255 255 / 0.1);
+  font-size: 0.8rem;
+  color: #897d73;
+}
+
+/* ---------- Hareket azaltma ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .bolum {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+  .urun:hover {
+    translate: none;
+  }
+}

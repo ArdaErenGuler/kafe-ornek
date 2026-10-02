@@ -1,0 +1,679 @@
+/* ============================================================
+   "Zarif" örnek tasarım — restoran
+   Koyu zemin, altın vurgu, el yazısı başlıklar; üst duyuru şeridi.
+   Deneme tasarımıdır; marka içermez. Dışarıdan dosya çekilmez.
+   ============================================================ */
+
+:root {
+  --altin: #b8914c;
+  --altin-acik: #d6b377;
+  --kurum: #2c2f33;
+  --kurum-2: #24272b;
+  --siyah: #1a1c1f;
+  --metin: #5d646c;
+  --metin-koyu: #2c2f33;
+  --cizgi: #e6e3dd;
+  --kagit: #ffffff;
+  --kagit-2: #faf8f4;
+
+  --kenar: clamp(1.25rem, 5vw, 3.5rem);
+  --govde: 1180px;
+  --elyazisi: Gabriola, "Segoe Script", "Brush Script MT", "Apple Chancery", cursive;
+}
+
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+body {
+  margin: 0;
+  background: var(--kagit);
+  color: var(--metin);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3 {
+  margin: 0;
+  color: var(--metin-koyu);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  line-height: 1.25;
+}
+p {
+  margin: 0;
+}
+a {
+  color: inherit;
+}
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+.kap {
+  width: 100%;
+  max-width: var(--govde);
+  margin-inline: auto;
+  padding-inline: var(--kenar);
+}
+.dar {
+  max-width: 740px;
+}
+.orta {
+  text-align: center;
+}
+
+.elyazisi {
+  font-family: var(--elyazisi);
+  font-weight: 400;
+  color: var(--altin);
+  line-height: 1.1;
+}
+
+/* ---------- Düğme ---------- */
+
+.dugme {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 2rem;
+  border: 1px solid var(--altin);
+  background: var(--altin);
+  color: #fff;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  cursor: pointer;
+  transition: background-color 0.25s, color 0.25s;
+}
+.dugme:hover {
+  background: transparent;
+  color: var(--altin);
+}
+.tam {
+  width: 100%;
+}
+
+/* ---------- Üst şerit ---------- */
+
+.serit {
+  background: var(--altin);
+  color: #fff;
+  font-size: 0.78rem;
+}
+.serit-ic {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 40px;
+}
+.serit-sosyal {
+  display: flex;
+  gap: 0.9rem;
+}
+.serit-sosyal svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+  opacity: 0.9;
+}
+.serit-sosyal a:hover svg {
+  opacity: 1;
+}
+.serit-orta {
+  display: none;
+  margin-inline: auto;
+  letter-spacing: 0.08em;
+}
+.serit-sag {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+.serit-sag svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+@media (min-width: 860px) {
+  .serit-orta {
+    display: block;
+  }
+  .serit-sag {
+    margin-left: 0;
+  }
+}
+
+/* ---------- Başlık ---------- */
+
+.ust {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fff;
+  border-bottom: 1px solid var(--cizgi);
+}
+.ust-ic {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  min-height: 84px;
+}
+.marka {
+  text-decoration: none;
+  line-height: 1;
+}
+.marka-ad {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 1.7rem;
+  letter-spacing: 0.02em;
+  color: var(--metin-koyu);
+}
+.marka-ad b {
+  font-weight: 400;
+  color: var(--altin);
+}
+.marka-alt {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.42em;
+  color: var(--metin);
+}
+
+.menu {
+  display: none;
+  margin-left: auto;
+  align-items: center;
+  gap: 1.6rem;
+}
+.menu a {
+  position: relative;
+  padding: 0.3rem 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--metin);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.menu a:hover,
+.menu a.etkin {
+  color: var(--altin);
+}
+.menu a.etkin::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 2px;
+  background: var(--altin);
+}
+
+.menu-ac {
+  margin-left: auto;
+  display: grid;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  place-content: center;
+  background: none;
+  border: 1px solid var(--cizgi);
+  cursor: pointer;
+}
+.menu-ac span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--metin-koyu);
+}
+
+@media (min-width: 1040px) {
+  .menu {
+    display: flex;
+  }
+  .menu-ac {
+    display: none;
+  }
+}
+@media (max-width: 1039px) {
+  .menu.acik {
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.4rem var(--kenar) 1rem;
+    background: #fff;
+    border-bottom: 1px solid var(--cizgi);
+  }
+  .menu.acik a {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--cizgi);
+  }
+  .menu.acik a.etkin::after {
+    display: none;
+  }
+}
+
+/* ---------- Kahraman ---------- */
+
+.kahraman {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: min(82vh, 700px);
+  padding: 4rem var(--kenar) 3rem;
+  text-align: center;
+  background-image: linear-gradient(rgb(20 22 25 / 0.68), rgb(20 22 25 / 0.74)),
+    url("../gorseller/hero-yemek.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+.hos {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  color: var(--altin-acik);
+}
+.kahraman-marka {
+  margin-top: 0.4rem;
+  font-family: Georgia, serif;
+  font-size: clamp(2.6rem, 8vw, 5rem);
+  line-height: 1;
+  color: #fff;
+}
+.kahraman-marka b {
+  font-weight: 400;
+  color: var(--altin-acik);
+}
+.kahraman-alt {
+  margin-top: 0.6rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.56em;
+  color: rgb(255 255 255 / 0.8);
+}
+.slogan {
+  margin-top: 2rem;
+  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+  color: #fff;
+}
+
+.ok {
+  position: absolute;
+  top: 45%;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: rgb(255 255 255 / 0.12);
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.ok:hover {
+  background: var(--altin);
+}
+.ok svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.ok-sol {
+  left: 0;
+}
+.ok-sag {
+  right: 0;
+}
+
+/* Hero'nun altına oturan üç kutu. Dar ekranda kahraman yazısının üstüne binmesin diye
+   akışta kalır; geniş ekranda hero'nun alt kenarına oturur. */
+.kutular {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: 1fr;
+  margin-top: 3rem;
+}
+.kutu {
+  padding: 1.1rem 1.4rem;
+  background: var(--altin);
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.25s;
+}
+.kutu:hover {
+  background: #a07c3c;
+}
+.kutu strong {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+.kutu span {
+  font-size: 0.8rem;
+  color: rgb(255 255 255 / 0.85);
+}
+@media (min-width: 820px) {
+  .kahraman {
+    padding: 5rem var(--kenar) 8rem;
+  }
+  .kutular {
+    position: absolute;
+    left: 50%;
+    bottom: -1px;
+    translate: -50% 0;
+    margin-top: 0;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* ---------- Bölümler ---------- */
+
+.bolum {
+  padding: clamp(4rem, 8vw, 6.5rem) 0;
+  opacity: 0;
+  translate: 0 18px;
+  transition: opacity 0.7s, translate 0.7s;
+}
+.bolum.gorundu {
+  opacity: 1;
+  translate: 0;
+}
+.bolum.koyu {
+  background: var(--kurum);
+  color: #c7ccd2;
+}
+.bolum.koyu h2,
+.bolum.koyu h3 {
+  color: #fff;
+}
+
+.bolum-elyazisi {
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+}
+.altin {
+  color: var(--altin-acik);
+}
+.bolum h2 {
+  margin-top: 0.3rem;
+  font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+}
+.bolum-ust {
+  margin-bottom: 3rem;
+}
+.giris {
+  margin-top: 1.4rem;
+}
+
+.ayrac {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2.2rem;
+}
+.ayrac span {
+  width: clamp(40px, 14vw, 120px);
+  height: 1px;
+  background: var(--cizgi);
+}
+.ayrac i {
+  width: 9px;
+  height: 9px;
+  rotate: 45deg;
+  background: var(--altin);
+}
+
+/* ---------- Menü ---------- */
+
+.menu-izgara {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.yemek {
+  display: grid;
+  gap: 1.1rem;
+}
+.yemek-gorsel {
+  aspect-ratio: 4 / 3;
+  background-size: cover;
+  background-position: center;
+}
+.y1 {
+  background-image: url("../gorseller/yemek-1.jpg");
+}
+.y2 {
+  background-image: url("../gorseller/yemek-2.jpg");
+}
+.y3 {
+  background-image: url("../gorseller/yemek-3.jpg");
+}
+.yemek-satir {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+.yemek h3 {
+  font-size: 1.25rem;
+}
+.nokta {
+  flex: 1;
+  border-bottom: 1px dotted rgb(255 255 255 / 0.3);
+  translate: 0 -4px;
+}
+.fiyat {
+  font-family: Georgia, serif;
+  color: var(--altin-acik);
+}
+.yemek p {
+  font-size: 0.92rem;
+}
+.menu-not {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 0.82rem;
+  color: #98a0a8;
+}
+
+/* ---------- Galeri ---------- */
+
+.galeri {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+.kare {
+  aspect-ratio: 1;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 0.25s;
+}
+.kare:hover {
+  opacity: 0.85;
+}
+.g1 { background-image: url("../gorseller/mekan-1.jpg"); }
+.g2 { background-image: url("../gorseller/yemek-1.jpg"); }
+.g3 { background-image: url("../gorseller/mekan-2.jpg"); }
+.g4 { background-image: url("../gorseller/yemek-3.jpg"); }
+.g5 { background-image: url("../gorseller/mekan-3.jpg"); }
+.g6 { background-image: url("../gorseller/yemek-2.jpg"); }
+@media (min-width: 760px) {
+  .galeri {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Rezervasyon ---------- */
+
+.rezervasyon {
+  padding: clamp(4rem, 8vw, 6.5rem) 0;
+  background-image: linear-gradient(rgb(20 22 25 / 0.82), rgb(20 22 25 / 0.88)),
+    url("../gorseller/mekan-2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+  color: #c7ccd2;
+  opacity: 0;
+  transition: opacity 0.8s;
+}
+.rezervasyon.gorundu {
+  opacity: 1;
+}
+.rezervasyon h2 {
+  color: #fff;
+}
+.rez-ic {
+  max-width: 760px;
+}
+.rez-metin {
+  margin-top: 1.2rem;
+  max-width: 44ch;
+}
+.rez-bilgi {
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+}
+.rez-bilgi li {
+  display: grid;
+  gap: 0.1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgb(255 255 255 / 0.12);
+}
+.rez-bilgi span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--altin-acik);
+}
+.rez-bilgi a,
+.rez-bilgi strong {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+}
+
+.rez-metin.orta,
+.rez-ic.orta .rez-metin {
+  margin-inline: auto;
+}
+
+/* Telefonla rezervasyon: form yerine büyük numara ve arama düğmesi */
+.rez-telefon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 2.2rem 0 1.6rem;
+  font-family: Georgia, serif;
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  color: #fff;
+  text-decoration: none;
+}
+.rez-telefon svg {
+  width: clamp(24px, 4vw, 34px);
+  height: clamp(24px, 4vw, 34px);
+  fill: none;
+  stroke: var(--altin-acik);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.rez-telefon:hover {
+  color: var(--altin-acik);
+}
+.rez-saat {
+  margin-top: 1.6rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- Alt ---------- */
+
+.alt {
+  padding: 3.5rem 0 2rem;
+  background: var(--siyah);
+  color: #9aa1a9;
+  font-size: 0.92rem;
+}
+.alt-ic {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+.alt h3 {
+  margin-bottom: 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--altin-acik);
+  font-family: inherit;
+}
+.alt a {
+  color: #fff;
+  text-decoration: none;
+}
+.alt-marka {
+  font-size: 1.5rem;
+  color: #fff;
+}
+.alt-marka b {
+  color: var(--altin-acik);
+}
+.alt-metin {
+  margin-top: 0.6rem;
+}
+.telif {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgb(255 255 255 / 0.1);
+  font-size: 0.82rem;
+  color: #6e767e;
+}
+
+/* ---------- Hareket azaltma ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .bolum,
+  .rezervasyon {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+}

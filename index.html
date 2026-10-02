@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kafe — Örnek Web Tasarımları</title>
+    <style>
+      :root {
+        --zemin: #15130f;
+        --kart: #211d18;
+        --cizgi: rgb(255 255 255 / 0.12);
+        --cizgi-2: rgb(255 255 255 / 0.26);
+        --baslik: #faf7f2;
+        --metin: #cfc7bb;
+        --soluk: #958c80;
+        --vurgu: #d6a65a;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        padding: clamp(2.5rem, 7vw, 5rem) clamp(1.25rem, 5vw, 3rem);
+        background: var(--zemin);
+        color: var(--metin);
+        font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+        line-height: 1.75;
+      }
+      .sayfa {
+        max-width: 1100px;
+        margin-inline: auto;
+      }
+      .ustbilgi {
+        margin: 0 0 2.5rem;
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--vurgu);
+      }
+      h1 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 400;
+        color: var(--baslik);
+        line-height: 1.15;
+      }
+      .giris {
+        max-width: 62ch;
+        margin: 1.2rem 0 0;
+        color: var(--soluk);
+      }
+      .izgara {
+        display: grid;
+        gap: 1.25rem;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        margin-top: 3rem;
+      }
+      .kart {
+        display: flex;
+        flex-direction: column;
+        padding: 1.6rem;
+        background: var(--kart);
+        border: 1px solid var(--cizgi);
+        border-radius: 12px;
+        text-decoration: none;
+        color: inherit;
+        transition: border-color 0.2s, translate 0.2s;
+      }
+      .kart:hover {
+        border-color: var(--cizgi-2);
+        translate: 0 -4px;
+      }
+      .onizleme {
+        aspect-ratio: 16 / 10;
+        border-radius: 8px;
+        margin-bottom: 1.2rem;
+        border: 1px solid var(--cizgi);
+        display: grid;
+        place-items: center;
+        font-size: 0.68rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+      .o1 {
+        background: linear-gradient(150deg, #2c2f33, #4a3c22);
+        color: #d6b377;
+      }
+      .o2 {
+        background: linear-gradient(150deg, #342a24, #e8792b);
+        color: #fbf0e0;
+      }
+      .o3 {
+        background: linear-gradient(150deg, #141416, #4a4e55);
+        color: #e3e6ea;
+      }
+      .kart h2 {
+        margin: 0 0 0.4rem;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--baslik);
+      }
+      .kart p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: var(--soluk);
+      }
+      .rozet {
+        align-self: flex-start;
+        margin-bottom: 0.9rem;
+        padding: 0.2rem 0.6rem;
+        border: 1px solid var(--cizgi);
+        border-radius: 4px;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--soluk);
+      }
+      .ac {
+        margin-top: 1.2rem;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--vurgu);
+      }
+      .not {
+        margin-top: 3.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--cizgi);
+        font-size: 0.85rem;
+        color: var(--soluk);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sayfa">
+      <p class="ustbilgi">Örnek Tasarımlar</p>
+
+      <h1>Kafe ve restoranlar için<br />örnek web tasarımları</h1>
+      <p class="giris">
+        Görüşmelerde göstermek için hazırlanmış deneme çalışmalarıdır; hiçbir işletmeye ait
+        değildir, içerikler yer tutucudur.
+      </p>
+
+      <div class="izgara">
+        <a class="kart" href="01-zarif/index.html">
+          <div class="onizleme o1">Koyu · Altın</div>
+          <span class="rozet">Tasarım 1</span>
+          <h2>Zarif</h2>
+          <p>Koyu zemin, altın vurgu, el yazısı başlıklar. Klasik restoran duruşu.</p>
+          <span class="ac">Aç →</span>
+        </a>
+
+        <a class="kart" href="02-sicak/index.html">
+          <div class="onizleme o2">Sıcak · Turuncu</div>
+          <span class="rozet">Tasarım 2</span>
+          <h2>Sıcak</h2>
+          <p>Kahve rengi üst menü, yuvarlak rozet, krem vurgu kutuları. Kahve dükkânı dili.</p>
+          <span class="ac">Aç →</span>
+        </a>
+
+        <a class="kart" href="03-sade/index.html">
+          <div class="onizleme o3">Sade · Minimal</div>
+          <span class="rozet">Tasarım 3</span>
+          <h2>Sade</h2>
+          <p>Tam ekran fotoğraf, ince başlık, az renk. Modern ve sakin bir dil.</p>
+          <span class="ac">Aç →</span>
+        </a>
+      </div>
+
+      <p class="not">
+        Düz HTML ve CSS ile yazıldı; internet bağlantısı olmadan da açılır. Fotoğraflar
+        Unsplash'ten, ticari kullanıma açık. İşletmenin kendi fotoğrafları geldiğinde
+        <code>gorseller/</code> klasöründeki dosyaların üzerine yazmak yeterli.
+      </p>
+    </div>
+  </body>
+</html>
